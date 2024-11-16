@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Qweezy</title>
+
+    <!-- Style CSS -->
+    <link rel="stylesheet" href="./style.css">
+</head>
+
+<body>
+    <div class="main">
+        <div class="container">
+            <!-- Landing Page Section -->
+            <div class="landing-page">
+                <img src="https://cdn-icons-png.flaticon.com/512/2958/2958990.png" alt="">
+                <h1>Qweezy</h1>
+                <div class="line"></div>
+                <p>Test your knowledge with this app!</p>
+                <input type="text" id="player-name" placeholder="Enter your name">
+                <button onclick="showAvatarSelection()">Next</button>
+            </div>
+
+            <!-- Avatar Selection Section -->
+            <div class="avatar-selection" style="display: none;">
+                <h1>Select Your Avatar</h1>
+                <div class="avatars">
+                    <img src="images/avatar1.jpg" onclick="selectAvatar('avatar1.jpg')">
+                    <img src="images/avatar2.jpg" onclick="selectAvatar('avatar2.jpg')">
+                    <img src="images/avatar3.jpg" onclick="selectAvatar('avatar3.jpg')">
+                </div>
+            </div>
+
+            <!-- Category Options Section -->
+            <div class="category-options" style="display: none;">
+                <h3>Select Category</h3>
+                <button onclick="showQuiz(9)">General Knowledge</button>
+                <button onclick="showQuiz(17)">Science and Nature</button>
+                <button onclick="showQuiz(19)">Science Mathematics</button>
+                <button onclick="showQuiz(22)">Geography</button>
+            </div>
+
+            <!-- Quiz Section -->
+            <div class="quiz" style="display: none;">
+                <div class="player-info"></div>
+                <h2 id="question"></h2>
+                <div id="options-container"></div>
+                <button class="restart-game" onclick="showLandingPage()">Restart Game</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Script JS -->
+    <script src="./script.js"></script>
+</body>
+
+</html>
