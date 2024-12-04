@@ -4,7 +4,7 @@ const categoryOptionsPage = document.querySelector(".category-options");
 const quizSection = document.querySelector(".quiz");
 const questionElement = document.getElementById("question");
 const optionsContainer = document.getElementById("options-container");
-const MAX_CONNECTIONS = 2; // Batasi hanya 2 koneksi
+const MAX_CONNECTIONS = 1; // Batasi hanya 2 koneksi
 
 let activeConnections = 0; // Menyimpan jumlah koneksi aktif
 let currentQuestionIndex = 0;
