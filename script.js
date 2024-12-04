@@ -4,38 +4,12 @@ const categoryOptionsPage = document.querySelector(".category-options");
 const quizSection = document.querySelector(".quiz");
 const questionElement = document.getElementById("question");
 const optionsContainer = document.getElementById("options-container");
-const MAX_CONNECTIONS = 1; // Batasi hanya 2 koneksi
 
-let activeConnections = 0; // Menyimpan jumlah koneksi aktif
 let currentQuestionIndex = 0;
 let questions = [];
 let playerName = "";
 let playerAvatar = "";
 let score = 0; // Variabel untuk menghitung skor
-
-// Function to simulate limiting the number of active connections
-function checkActiveConnections() {
-    if (activeConnections >= MAX_CONNECTIONS) {
-        alert("Server is overloaded. Please try again later.");
-        simulateDowntime(); // Simulasi downtime jika sudah overload
-        return false; // Tidak lanjutkan ke bagian berikutnya
-    } else {
-        activeConnections++; // Menambah koneksi aktif
-        return true;
-    }
-}
-
-// Function to simulate server downtime
-function simulateDowntime() {
-    landingPage.style.display = "none";
-    avatarSelectionPage.style.display = "none";
-    categoryOptionsPage.style.display = "none";
-    quizSection.style.display = "none";
-    document.body.innerHTML = `
-        <h1>503: Service Unavailable</h1>
-        <p>We're sorry, but the server is temporarily unavailable. Please try again later.</p>
-    `;
-}
 
 // Function to show the landing page
 function showLandingPage() {
@@ -66,11 +40,6 @@ function selectAvatar(avatar) {
 
 // Function to show the quiz
 function showQuiz(category) {
-    // Cek apakah koneksi aktif melebihi batas
-    if (!checkActiveConnections()) {
-        return; // Tidak lanjutkan jika koneksi melebihi batas
-    }
-    
     categoryOptionsPage.style.display = "none";
     quizSection.style.display = "";
     displayPlayerInfo();
@@ -169,10 +138,4 @@ function displayScore() {
         <p>${playerName}, your score is ${score} out of ${questions.length}.</p>
         <button onclick="showLandingPage()">Restart Game</button>
     `;
-}
-
-// Function to end the quiz and reduce active connections
-function endQuiz() {
-    activeConnections--; // Mengurangi koneksi aktif setelah kuis selesai
-    showLandingPage(); // Kembali ke halaman utama
 }
