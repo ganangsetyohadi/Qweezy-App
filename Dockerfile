@@ -10,5 +10,8 @@ COPY . .
 # Expose port 80 to access the app via the browser
 EXPOSE 80
 
+# Set environment variable PORT agar sesuai dengan Cloud Run
+ENV PORT 80
+
 # Run the nginx server to serve your files
 CMD ["nginx", "-g", "daemon off;"]
